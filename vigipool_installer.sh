@@ -471,7 +471,7 @@ replace_name() {
     fi
 }
 
-replace_name "Auxiliary 1 Mode" "Auxiliaire 1 Mode"
+replace_name "pH Setpoint" "Consigne pH"
 
 found_and_integrate() {
     if [[ -z "$2" ]]; then

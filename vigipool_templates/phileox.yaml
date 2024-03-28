@@ -35,7 +35,7 @@
         identifiers: Phileo VP
 
 - number:
-    name: Consigne pH
+    name: pH Setpoint
     command_topic: "phileox_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/desired"
     state_topic: "phileox_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/reported"
     unique_id: "phileox_XXXXXXXXXXXX.consigne_ph"
@@ -102,7 +102,7 @@
         identifiers: Phileo VP
 
 - sensor:
-    name: Valeur du pH
+    name: Value Ph
     state_topic: "phileox_XXXXXXXXXXXX/u16_r/value_ph/value/reported"
     unique_id: phileox_XXXXXXXXXXXX.value_ph
     value_template: |-
