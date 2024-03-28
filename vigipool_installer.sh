@@ -495,7 +495,34 @@ replace_name() {
     sed -i "s/$1/$2/" vigipool.yaml
 }
 
-replace_name "pH Setpoint" "Consigne pH"
+if [[ "$text_step_1" == "Étape 1 - Installation des packages nécessaires" ]]; then
+    replace_name " Injecting Product" " Produit Injecté"
+    replace_name " Total volume injected" " Volume total injecté"
+    replace_name " Serial Number" " Numéro de série"
+    replace_name " pH Setpoint" " Consigne pH"
+    replace_name " Max volume injected in 24 hours" " Volume max injecté en 24 heures"
+    replace_name " Container volume" " Volume du conteneur"
+    replace_name " Firmware Version" " Version du firmware"
+    replace_name " pH Value" " Valeur du pH"
+    replace_name " Hardware Version" " Version du matériel"
+    replace_name " Light" " Éclairage"
+    replace_name " Filtration" " Filtration"
+    replace_name " Auxiliary" " Auxiliary"
+    replace_name " AnteaM" " AnteaM"
+    replace_name " Light Mode" " Éclairage Mode"
+    replace_name " Filtration Mode" " Mode de filtration "
+    replace_name " Auxiliary 1 Mode" " Mode de l'auxiliaire 1"
+    replace_name " Auxiliary 2 Mode" " Mode de l'auxiliaire 2"
+    replace_name " ORP Value" " Valeur de l'ORP"
+    replace_name " ORP Setpoint" " Consigne ORP"
+    replace_name " pH mode" " Mode du pH"
+    replace_name " pH Setpoint" " Consigne pH"
+    replace_name " pH Setpoint" " pH Setpoint"
+    replace_name " Speed" " Vitesse"
+    replace_name " Timer" " Minuterie"
+    replace_name " Time Selecter" " Time Selecter"
+    replace_name " Time Remaining" " Time Remaining"
+fi
 
 echo "";
 echo "";
