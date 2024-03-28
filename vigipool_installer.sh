@@ -57,6 +57,7 @@ while true; do
         text_prob_1="There was a problem during the installation, here is the error"
         text_prob_2="if you want to undo changes, you can use the backup named"
         text_nothing="The configuration is already there, no changes will be made"
+        text_error_no_device="No Vigipool compatible device was found, the installation is canceled, please check if the devices are connected to your Wi-Fi and if the Home Assistant MQTT is correctly configured."
         break
     elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
         echo "Vous avez sélectionné '2 - FR - Français'"
@@ -99,6 +100,7 @@ while true; do
         text_prob_1="Il y a eu un problème lors de l'installation, voici l'erreur"
         text_prob_2="Si vous souhaitez annuler les modifications, vous pouvez utiliser la sauvegarde nommée"
         text_nothing="La configuration est déjà là, aucune modification ne sera faite"
+        text_error_no_device="Aucun périphérique compatible Vigipool a été trouvé, l'installation est annulée, veuillez vérifier si les périphériques sont bien connectés à votre Wi-Fi et si le MQTT de Home Assistant est bien configuré."
         break
     else
         echo The choice was not understood, please try again \/ Le choix n\'a pas été compris, veuillez réessayer
@@ -345,7 +347,7 @@ clean_and_download_template() {
     if test -f "$1.yaml"; then
         rm $1.yaml
     fi
-    wget -q http://$link_to_scripts/vigipool_templates/$1.yaml
+    wget -q $link_to_scripts/vigipool_templates/$1.yaml
 }
 
 clean_and_download_template "anteam" $anteam
@@ -406,6 +408,18 @@ vigipool=$(retrieving_device_names 'vigipool')
 vigiwatt=$(retrieving_device_names 'vigiwatt')
 x312=$(retrieving_device_names 'x312')
 ziphox=$(retrieving_device_names 'ziphox')
+
+$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox
+
+# String
+if [[ -z "$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox" ]]; then
+    echo $text_error_no_device
+    exit 1
+elif [[ -n "$string" ]]; then
+    echo "Ok"
+else
+    echo "This never happens"
+fi
 
 echo "$text_displaying"
 
