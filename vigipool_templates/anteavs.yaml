@@ -1,0 +1,44 @@
+# AnteaVS Configuration Begin
+
+# - sensor:
+#     name: AnteaVS - Identifiant De La Pompe
+#     state_topic: anteavs_XXXXXXXXXXXX/u16_w/pump_id/info/reported
+#     device:
+#         configuration_url: https://www.ccei-pool.com/fr/produit/antea-vs
+#         manufacturer: CCEI
+#         model: AnteaVS
+#         name: AnteaVS
+#         identifiers: AnteaVS
+
+# - sensor:
+#     name: AnteaVS - Configuration Des Relais / Vitesse
+#     state_topic: anteavs_XXXXXXXXXXXX/u16_w/pump_conf/info/reported
+#     device:
+#         configuration_url: https://www.ccei-pool.com/fr/produit/antea-vs
+#         manufacturer: CCEI
+#         model: AnteaVS
+#         name: AnteaVS
+#         identifiers: AnteaVS
+
+# - sensor:
+#     name: AnteaVS - Vitesse De Filtration
+#     state_topic: anteavs_XXXXXXXXXXXX/u8_w/filt_speed/info/reported
+#     device:
+#         configuration_url: https://www.ccei-pool.com/fr/produit/antea-vs
+#         manufacturer: CCEI
+#         model: AnteaVS
+#         name: AnteaVS
+#         identifiers: AnteaVS
+
+# - sensor:
+#     name: AnteaVS - Mode Skimmer
+#     state_topic: anteavs_XXXXXXXXXXXX/u8_w/filt_skim/info/reported
+#     device:
+#         configuration_url: https://www.ccei-pool.com/fr/produit/antea-vs
+#         manufacturer: CCEI
+#         model: AnteaVS
+#         name: AnteaVS
+#         identifiers: AnteaVS
+
+# AnteaVS Configuration End
+

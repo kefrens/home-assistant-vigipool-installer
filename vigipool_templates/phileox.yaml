@@ -1,0 +1,152 @@
+# Phileox Configuration Begin
+
+- sensor:
+    name: "RSSI"
+    state_topic: "phileox_XXXXXXXXXXXX/i8_r/rssi/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.rssi
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+
+- sensor:
+    name: "ID"
+    state_topic: "phileox_XXXXXXXXXXXX/s44_r/device_id/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.device_id
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- sensor:
+    name: "Serial Number"
+    state_topic: "phileox_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.serial_num
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- number:
+    name: "Consigne pH"
+    command_topic: "phileox_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/desired"
+    state_topic: "phileox_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/reported"
+    unique_id: "phileox_XXXXXXXXXXXX.consigne_ph"
+    unit_of_measurement: "pH"
+    mode: slider
+    command_template: "{{ float(value) * 100 }}"
+    value_template: "{{ float(value) * 0.01 }}"
+    step: 0.2
+    min: 6.8
+    max: 7.6
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- number:
+    name: Max volume injected in 24 hours
+    command_topic: "phileox_XXXXXXXXXXXX/u16_w/vol_max_24h/info/desired"
+    state_topic: "phileox_XXXXXXXXXXXX/u16_w/vol_max_24h/info/reported"
+    unique_id: "phileox_XXXXXXXXXXXX.vol_max_24h"
+    unit_of_measurement: "L/day"
+    command_template: "{{ float(value) * 100 }}"
+    value_template: "{{ float(value) * 0.01 }}"
+    step: 0.10
+    min: 0
+    max: 2.00
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- number:
+    name: Container volume
+    command_topic: "phileox_XXXXXXXXXXXX/u16_w/vol_bac/info/desired"
+    state_topic: "phileox_XXXXXXXXXXXX/u16_w/vol_bac/info/reported"
+    unique_id: "phileox_XXXXXXXXXXXX.vol_bac"
+    unit_of_measurement: "L"
+    command_template: "{{ int(value) * 100 }}"
+    value_template: "{{ int(value) * 0.01 }}"
+    step: 1
+    min: 0
+    max: 50
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- sensor:
+    name: "Firmware Version"
+    state_topic: "phileox_XXXXXXXXXXXX/u16_r/sw_vers/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.sw_vers
+    value_template: "{{ float('%0x' % value | int(0))/100 }}"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- sensor:
+    name: "Valeur du pH"
+    state_topic: "phileox_XXXXXXXXXXXX/u16_r/value_ph/value/reported"
+    unique_id: phileox_XXXXXXXXXXXX.value_ph
+    value_template: |-
+        {% if value == "65534" %}
+          {{ "-" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- sensor:
+    name: "mode_ph"
+    state_topic: "phileox_XXXXXXXXXXXX/u8_r/mode_ph/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.mode_ph
+    value_template: |-
+        {% if value == "0" %}
+          {{ "pH-" }}
+        {% elif value == "1" %}
+          {{ "pH+" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+- sensor:
+    name: "Hardware Version"
+    state_topic: "phileox_XXXXXXXXXXXX/u8_r/hw_vers/info/reported"
+    unique_id: phileox_XXXXXXXXXXXX.hw_vers
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Phileo VP
+        name: Phileo VP
+        identifiers: Phileo VP
+
+# Phileox Configuration End
+

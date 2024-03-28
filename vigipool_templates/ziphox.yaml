@@ -1,0 +1,107 @@
+# Ofix Configuration Begin
+
+- sensor:
+    name: "RSSI"
+    state_topic: "ziphox_XXXXXXXXXXXX/i8_r/rssi/info/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.rssi
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/ofix-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "ID"
+    state_topic: "ziphox_XXXXXXXXXXXX/s44_r/device_id/info/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.device_id
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/ofix-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "Serial Number"
+    state_topic: "ziphox_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.serial_num
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/ofix-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "pH Value"
+    state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_ph/value/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.value_ph
+    value_template: |-
+        {% if value == "65534" %}
+          {{ "-" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/ofix-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "ORP Value"
+    state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_orp/value/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.value_orp
+    value_template: |-
+        {% if value == "65534" %}
+          {{ "-" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "Temperature"
+    state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_temp/value/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.value_temp
+    value_template: |-
+        {% if value == "65534" %}
+          {{ "-" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+- sensor:
+    name: "Flow"
+    state_topic: "ziphox_XXXXXXXXXXXX/u8_r/flow_on/value/reported"
+    unique_id: ziphox_XXXXXXXXXXXX.flow_on
+    value_template: |-
+        {% if value == "0" %}
+          {{ "Off" }}
+        {% elif value == "1" %}
+          {{ "On" }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/phileo-vp
+        manufacturer: CCEI
+        model: Ofix VP
+        name: Ofix VP
+        identifiers: Ofix VP
+
+# Ofix Configuration Begin
+

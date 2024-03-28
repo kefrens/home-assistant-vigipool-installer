@@ -1,0 +1,73 @@
+# VigiWatt Configuration Begin
+
+# - sensor:
+#     name: VigiW@tt - Index
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u32_r/watt_ind/value/reported
+#     unit_of_measurement: Wh
+
+# - sensor: 
+#     name: VigiW@tt - intervalle de rafraichissement des infos instantanées
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u16_w/refresh/info/reported
+#     unit_of_measurement: secondes
+
+# - sensor: 
+#     name: VigiW@tt - Puissance Instantanée
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u32_r/watt_ind/value/reported
+#     unit_of_measurement: W
+
+# - sensor: 
+#     name: VigiW@tt - courant instantanée
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u16_r/amp/value/reported
+#     unit_of_measurement: dixième A
+
+# - sensor: 
+#     name: VigiW@tt - tension instantanée
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u8_r/volt/value/reported
+#     unit_of_measurement: V
+
+# - sensor: 
+#     name: VigiW@tt - fréquence instantanée
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u8_r/freq/value/reported
+#     unit_of_measurement: Hz
+
+# - sensor: 
+#     name: VigiW@tt - facteur de puissance instantanée
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u8_r/pf/value/reported
+#     unit_of_measurement: "%"
+					
+# - sensor: 
+#     name: VigiW@tt - meter serial number
+#     state_topic: vigiwatt_XXXXXXXXXXXX/u32_r/meter_sn/info/reported
+
+# - sensor: 
+#     name: VigiW@tt - meter software version
+#     state_topic: vigiwatt_XXXXXXXXXXXX/s33_r/meter_sw/info/reported
+
+
+# vigiwatt_90380CFDB954/u32_r/state/info/reported 0
+# vigiwatt_90380CFDB954/u32_r/error/info/reported 512
+# vigiwatt_90380CFDB954/u32_r/watt_ind/value/reported 0
+# vigiwatt_90380CFDB954/u32_r/meter_sn/info/reported 0
+# vigiwatt_90380CFDB954/s44_w/name/info/reported vigiwatt_90380CFDB954
+# vigiwatt_90380CFDB954/u8_w/action/info/reported 0
+# vigiwatt_90380CFDB954/s128_w/update_ota/info/reported  
+# vigiwatt_90380CFDB954/u8_r/server_on/info/reported 0
+# vigiwatt_90380CFDB954/u8_r/volt/value/reported 0
+# vigiwatt_90380CFDB954/u8_r/freq/value/reported 0
+# vigiwatt_90380CFDB954/u8_r/pf/value/reported 0
+# vigiwatt_90380CFDB954/u8_r/mqtt_connected/info/reported 0
+# vigiwatt_90380CFDB954/u8_r/model_id/info/reported 28
+# vigiwatt_90380CFDB954/u8_r/hw_vers/info/reported 2
+# vigiwatt_90380CFDB954/u32_w/date_mes/info/reported 1684919708
+# vigiwatt_90380CFDB954/u32_w/jeedom_dbg/info/reported 0
+# vigiwatt_90380CFDB954/u16_w/refresh/info/reported 3600
+# vigiwatt_90380CFDB954/u16_r/watt/value/reported 0
+# vigiwatt_90380CFDB954/u16_r/amp/value/reported 0
+# vigiwatt_90380CFDB954/u16_r/sw_vers/info/reported 256
+# vigiwatt_90380CFDB954/s33_r/meter_sw/info/reported  
+# vigiwatt_90380CFDB954/s33_r/serial_num/info/reported 1C02010000000000000090380CFDB954
+# vigiwatt_90380CFDB954/s44_r/device_id/info/reported vigiwatt_90380CFDB954
+# vigiwatt_90380CFDB954/i8_r/rssi/info/reported -26
+
+# VigiWatt Configuration End
+

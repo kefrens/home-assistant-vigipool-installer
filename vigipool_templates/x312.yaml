@@ -1,0 +1,448 @@
+# VigiBrio Configuration Begin
+
+- light:
+    name: Light
+
+    state_topic: x312_XXXXXXXXXXXX/u8_w/x3_state/info/reported
+    command_topic: x312_XXXXXXXXXXXX/u8_w/x3_state/info/desired
+    unique_id: x312_XXXXXXXXXXXX.x3_state
+    payload_off: "0"
+    payload_on: "1"
+
+    brightness_state_topic: x312_XXXXXXXXXXXX/u8_w/x3_bright/info/reported
+    brightness_command_topic: x312_XXXXXXXXXXXX/u8_w/x3_bright/info/desired
+    brightness_scale: "100"
+
+    color_mode_state_topic: x312_XXXXXXXXXXXX/s128_w/x3_color/info/reported
+
+    effect_command_topic: x312_XXXXXXXXXXXX/s128_w/x3_color/info/desired
+    effect_state_topic: x312_XXXXXXXXXXXX/s128_w/x3_color/info/reported
+    effect_list:
+        - "Rainbow"
+        - "Fun"
+        - "Ocean"
+        - "Flamme"
+        - "Parade"
+        - "Elegant"
+        - "Horizon"
+        - "Psyche"
+    effect_command_template: >
+        {%- if value == "Rainbow" -%} S#FF000094#FFFF0094#00FF0094#00FFFF94#0000FF94#FF00FF94 {%- endif -%}
+        {%- if value == "Fun" -%} S#FF000027#FFFF0027#0000FF27#00FF0027#00FFFF27#FF00FF27#FFFFFF27 {%- endif -%}
+        {%- if value == "Ocean" -%} S#0000FF32KFF32#008AFF32KFF32#00D8FF32KFF32#00DCD432KFF32#18FFFF32KFF32#01579B32KFF32#039BE532KFF32#00FFFF32KFF32 {%- endif -%}
+        {%- if value == "Flamme" -%} S#FD31034B#FE88174B#FD4E0A2B#FE6B104B#FFDD004B#FE88172D#FFDD004B#FE88176B {%- endif -%}
+        {%- if value == "Parade" -%} S#FFFF00FE#00FF00FE#18FFFFFEKFFFE#FF00FFFE#9C27B0FE#FF0000FE#FFAB40FEK3CFE {%- endif -%}
+        {%- if value == "Elegant" -%} SK8038KBF38KFF38KBF38K4438K0038K4438 {%- endif -%}
+        {%- if value == "Horizon" -%} S#0000FF7FK897F#04FFFF7F {%- endif -%}
+        {%- if value == "Psyche" -%} S#FF005004#00000000#0000FF04#00000000#15EDFF04#00000000#C000FF04#00000000#FFFF0004#00000000#FF00FF04#00000000 {%- endif -%}
+
+    rgb_command_topic: x312_XXXXXXXXXXXX/s128_w/x3_color/info/desired
+    rgb_command_template: >
+        {% set value_rgb = value %}
+        {% set value_rgb_split = value_rgb.split(',') %}
+        {% set value_1 = "%0x" | format( value_rgb_split[0] | int ) %}
+        {% set value_2 = "%0x" | format( value_rgb_split[1] | int ) %}
+        {% set value_3 = "%0x" | format( value_rgb_split[2] | int ) %}
+        {% set value_hex = "#" + value_1 + value_2 + value_3 %}
+        {{ value_hex }}
+    rgb_state_topic: x312_XXXXXXXXXXXX/s128_w/x3_color/info/reported
+
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/vigibrio
+        manufacturer: CCEI
+        model: VigiBrio
+        name: VigiBrio
+        identifiers: VigiBrio
+
+- number:
+    name: "Vitesse de l'effet"
+    command_topic: "x312_XXXXXXXXXXXX/u8_w/x3_speed/info/desired"
+    state_topic: "x312_XXXXXXXXXXXX/u8_w/x3_speed/info/reported"
+    unique_id: "x312_XXXXXXXXXXXX.x3_speed"
+    unit_of_measurement: "%"
+    step: 50
+    min: 50
+    max: 150
+
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/vigibrio
+        manufacturer: CCEI
+        model: VigiBrio
+        name: VigiBrio
+        identifiers: VigiBrio
+
+# - number:
+#     name: "Minuterie"
+#     command_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/desired"
+#     state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
+#     unique_id: "x312_XXXXXXXXXXXX.light_timer"
+#     unit_of_measurement: " minutes"
+#     step: 15
+#     min: 0
+#     max: 1485
+#     command_template: >
+#         {% set time_current = as_timestamp(now()) %}
+#         {% set time_add = value*60-1 %}
+#         {% set time_timer = time_current+time_add %}
+#         {{ time_timer | int }}
+#     value_template: >
+#         {%- if value == "0" -%} 0 {%- else -%} 1 {%- endif -%}
+#     device:
+#         configuration_url: https://www.ccei-pool.com/fr/produit/vigibrio
+#         manufacturer: CCEI
+#         model: VigiBrio
+#         name: VigiBrio
+#         identifiers: VigiBrio
+
+- select:
+    name: "Time Selecter"
+    command_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/desired"
+    state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
+    unique_id: "x312_XXXXXXXXXXXX.light_timer"
+    command_template: >
+        {%- if value == "00:00" -%}
+            {% set value = 0 %}
+        {%- elif value == "00:15" -%}
+            {% set value = 15 %}
+        {%- elif value == "00:30" -%}
+            {% set value = 30 %}
+        {%- elif value == "00:45" -%}
+            {% set value = 45 %}
+        {%- elif value == "01:00" -%}
+            {% set value = 60 %}
+        {%- elif value == "01:15" -%}
+            {% set value = 75 %}
+        {%- elif value == "01:30" -%}
+            {% set value = 90 %}
+        {%- elif value == "01:45" -%}
+            {% set value = 105 %}
+        {%- elif value == "02:00" -%}
+            {% set value = 120 %}
+        {%- elif value == "02:15" -%}
+            {% set value = 135 %}
+        {%- elif value == "02:30" -%}
+            {% set value = 150 %}
+        {%- elif value == "02:45" -%}
+            {% set value = 165 %}
+        {%- elif value == "03:00" -%}
+            {% set value = 180 %}
+        {%- elif value == "03:15" -%}
+            {% set value = 195 %}
+        {%- elif value == "03:30" -%}
+            {% set value = 210 %}
+        {%- elif value == "03:45" -%}
+            {% set value = 225 %}
+        {%- elif value == "04:00" -%}
+            {% set value = 240 %}
+        {%- elif value == "04:15" -%}
+            {% set value = 255 %}
+        {%- elif value == "04:30" -%}
+            {% set value = 270 %}
+        {%- elif value == "04:45" -%}
+            {% set value = 285 %}
+        {%- elif value == "05:00" -%}
+            {% set value = 300 %}
+        {%- elif value == "05:15" -%}
+            {% set value = 315 %}
+        {%- elif value == "05:30" -%}
+            {% set value = 330 %}
+        {%- elif value == "05:45" -%}
+            {% set value = 345 %}
+        {%- elif value == "06:00" -%}
+            {% set value = 360 %}
+        {%- elif value == "06:15" -%}
+            {% set value = 375 %}
+        {%- elif value == "06:30" -%}
+            {% set value = 390 %}
+        {%- elif value == "06:45" -%}
+            {% set value = 405 %}
+        {%- elif value == "07:00" -%}
+            {% set value = 420 %}
+        {%- elif value == "07:15" -%}
+            {% set value = 435 %}
+        {%- elif value == "07:30" -%}
+            {% set value = 450 %}
+        {%- elif value == "07:45" -%}
+            {% set value = 465 %}
+        {%- elif value == "08:00" -%}
+            {% set value = 480 %}
+        {%- elif value == "08:15" -%}
+            {% set value = 495 %}
+        {%- elif value == "08:30" -%}
+            {% set value = 510 %}
+        {%- elif value == "08:45" -%}
+            {% set value = 525 %}
+        {%- elif value == "09:00" -%}
+            {% set value = 540 %}
+        {%- elif value == "09:15" -%}
+            {% set value = 555 %}
+        {%- elif value == "09:30" -%}
+            {% set value = 570 %}
+        {%- elif value == "09:45" -%}
+            {% set value = 585 %}
+        {%- elif value == "10:00" -%}
+            {% set value = 600 %}
+        {%- elif value == "10:15" -%}
+            {% set value = 615 %}
+        {%- elif value == "10:30" -%}
+            {% set value = 630 %}
+        {%- elif value == "10:45" -%}
+            {% set value = 645 %}
+        {%- elif value == "11:00" -%}
+            {% set value = 660 %}
+        {%- elif value == "11:15" -%}
+            {% set value = 675 %}
+        {%- elif value == "11:30" -%}
+            {% set value = 690 %}
+        {%- elif value == "11:45" -%}
+            {% set value = 705 %}
+        {%- elif value == "12:00" -%}
+            {% set value = 720 %}
+        {%- elif value == "12:15" -%}
+            {% set value = 735 %}
+        {%- elif value == "12:30" -%}
+            {% set value = 750 %}
+        {%- elif value == "12:45" -%}
+            {% set value = 765 %}
+        {%- elif value == "13:00" -%}
+            {% set value = 780 %}
+        {%- elif value == "13:15" -%}
+            {% set value = 795 %}
+        {%- elif value == "13:30" -%}
+            {% set value = 810 %}
+        {%- elif value == "13:45" -%}
+            {% set value = 825 %}
+        {%- elif value == "14:00" -%}
+            {% set value = 840 %}
+        {%- elif value == "14:15" -%}
+            {% set value = 855 %}
+        {%- elif value == "14:30" -%}
+            {% set value = 870 %}
+        {%- elif value == "14:45" -%}
+            {% set value = 885 %}
+        {%- elif value == "15:00" -%}
+            {% set value = 900 %}
+        {%- elif value == "15:15" -%}
+            {% set value = 915 %}
+        {%- elif value == "15:30" -%}
+            {% set value = 930 %}
+        {%- elif value == "15:45" -%}
+            {% set value = 945 %}
+        {%- elif value == "16:00" -%}
+            {% set value = 960 %}
+        {%- elif value == "16:15" -%}
+            {% set value = 975 %}
+        {%- elif value == "16:30" -%}
+            {% set value = 990 %}
+        {%- elif value == "16:45" -%}
+            {% set value = 1005 %}
+        {%- elif value == "17:00" -%}
+            {% set value = 1020 %}
+        {%- elif value == "17:15" -%}
+            {% set value = 1035 %}
+        {%- elif value == "17:30" -%}
+            {% set value = 1050 %}
+        {%- elif value == "17:45" -%}
+            {% set value = 1065 %}
+        {%- elif value == "18:00" -%}
+            {% set value = 1080 %}
+        {%- elif value == "18:15" -%}
+            {% set value = 1095 %}
+        {%- elif value == "18:30" -%}
+            {% set value = 1110 %}
+        {%- elif value == "18:45" -%}
+            {% set value = 1125 %}
+        {%- elif value == "19:00" -%}
+            {% set value = 1140 %}
+        {%- elif value == "19:15" -%}
+            {% set value = 1155 %}
+        {%- elif value == "19:30" -%}
+            {% set value = 1170 %}
+        {%- elif value == "19:45" -%}
+            {% set value = 1185 %}
+        {%- elif value == "20:00" -%}
+            {% set value = 1200 %}
+        {%- elif value == "20:15" -%}
+            {% set value = 1215 %}
+        {%- elif value == "20:30" -%}
+            {% set value = 1230 %}
+        {%- elif value == "20:45" -%}
+            {% set value = 1245 %}
+        {%- elif value == "21:00" -%}
+            {% set value = 1260 %}
+        {%- elif value == "21:15" -%}
+            {% set value = 1275 %}
+        {%- elif value == "21:30" -%}
+            {% set value = 1290 %}
+        {%- elif value == "21:45" -%}
+            {% set value = 1305 %}
+        {%- elif value == "22:00" -%}
+            {% set value = 1320 %}
+        {%- elif value == "22:15" -%}
+            {% set value = 1335 %}
+        {%- elif value == "22:30" -%}
+            {% set value = 1350 %}
+        {%- elif value == "22:45" -%}
+            {% set value = 1365 %}
+        {%- elif value == "23:00" -%}
+            {% set value = 1380 %}
+        {%- elif value == "23:15" -%}
+            {% set value = 1395 %}
+        {%- elif value == "23:30" -%}
+            {% set value = 1410 %}
+        {%- elif value == "23:45" -%}
+            {% set value = 1425 %}
+        {%- elif value == "24:00" -%}
+            {% set value = 1440 %}
+        {%- elif value == "24:15" -%}
+            {% set value = 1455 %}
+        {%- elif value == "24:30" -%}
+            {% set value = 1470 %}
+        {%- elif value == "24:45" -%}
+            {% set value = 1485 %}
+        {%- else -%}
+            {% set value = 0 %}
+        {%- endif -%}
+        {%- if value == 0 -%}
+            {{ "0" }}
+        {%- else -%}
+            {% set time_current = as_timestamp(now()) %}
+            {% set time_add = (value-1)*60 %}
+            {% set time_timer = time_current+time_add %}
+            {{ time_timer | int }}
+        {%- endif -%}
+        
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/vigibrio
+        manufacturer: CCEI
+        model: VigiBrio
+        name: VigiBrio
+        identifiers: VigiBrio
+    options:
+    - "00:00"
+    - "00:15"
+    - "00:30"
+    - "00:45"
+    - "01:00"
+    - "01:15"
+    - "01:30"
+    - "01:45"
+    - "02:00"
+    - "02:15"
+    - "02:30"
+    - "02:45"
+    - "03:00"
+    - "03:15"
+    - "03:30"
+    - "03:45"
+    - "04:00"
+    - "04:15"
+    - "04:30"
+    - "04:45"
+    - "05:00"
+    - "05:15"
+    - "05:30"
+    - "05:45"
+    - "06:00"
+    - "06:15"
+    - "06:30"
+    - "06:45"
+    - "07:00"
+    - "07:15"
+    - "07:30"
+    - "07:45"
+    - "08:00"
+    - "08:15"
+    - "08:30"
+    - "08:45"
+    - "09:00"
+    - "09:15"
+    - "09:30"
+    - "09:45"
+    - "10:00"
+    - "10:15"
+    - "10:30"
+    - "10:45"
+    - "11:00"
+    - "11:15"
+    - "11:30"
+    - "11:45"
+    - "12:00"
+    - "12:15"
+    - "12:30"
+    - "12:45"
+    - "13:00"
+    - "13:15"
+    - "13:30"
+    - "13:45"
+    - "14:00"
+    - "14:15"
+    - "14:30"
+    - "14:45"
+    - "15:00"
+    - "15:15"
+    - "15:30"
+    - "15:45"
+    - "16:00"
+    - "16:15"
+    - "16:30"
+    - "16:45"
+    - "17:00"
+    - "17:15"
+    - "17:30"
+    - "17:45"
+    - "18:00"
+    - "18:15"
+    - "18:30"
+    - "18:45"
+    - "19:00"
+    - "19:15"
+    - "19:30"
+    - "19:45"
+    - "20:00"
+    - "20:15"
+    - "20:30"
+    - "20:45"
+    - "21:00"
+    - "21:15"
+    - "21:30"
+    - "21:45"
+    - "22:00"
+    - "22:15"
+    - "22:30"
+    - "22:45"
+    - "23:00"
+    - "23:15"
+    - "23:30"
+    - "23:45"
+    - "24:00"
+    - "24:15"
+    - "24:30"
+    - "24:45"
+
+- sensor:
+    name: "Time Remaining"
+    state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
+    unique_id: "x312_XXXXXXXXXXXX.light_timer_display"
+    unit_of_measurement: "minutes remaining"    
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/vigibrio
+        manufacturer: CCEI
+        model: VigiBrio
+        name: VigiBrio
+        identifiers: VigiBrio
+    value_template: >
+        {%- if value == "0" -%}
+            {{ "0" }}
+        {%- else -%}
+            {% set time_current = as_timestamp(now()) %}
+            {% set time_add = int(value)-time_current %}
+            {% set time_timer = (time_add/60)+1 %}
+            {{ time_timer | int }}
+        {%- endif -%}
+        
+
+
+
+# VigiBrio Configuration End
+

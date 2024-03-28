@@ -1,0 +1,16 @@
+# AnteaOX Configuration Begin
+
+# - sensor:
+#     name: AnteaOX - ORP Value 
+#     state_topic: "anteaox_xxxxxxxxxxxx/u16_r/value_orp/value/reported"
+
+# - sensor:
+#     name: AnteaOX - Flow State
+#     state_topic: "anteaox_xxxxxxxxxxxx/u8_r/flow_on/value/reported"
+
+# - sensor:
+#     name: AnteaOX - ORP Probe Commissioning Date
+#     state_topic: "anteaox_xxxxxxxxxxxx/u32_w/date_mes_orp/value/reported"
+
+# AnteaOX Configuration End
+

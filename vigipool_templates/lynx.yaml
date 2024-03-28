@@ -1,0 +1,34 @@
+# Linx Configuration Begin
+
+- sensor:
+    name: Injecting Product
+    state_topic: "lynx_XXXXXXXXXXXX/u8_r/inject_on/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/lynx-vp
+        manufacturer: CCEI
+        model: Lynx VP
+        name: Lynx VP
+        identifiers: Lynx VP
+    
+- sensor:
+    name: vol_24h_inject
+    state_topic: "lynx_XXXXXXXXXXXX/u16_r/vol_24h_inject/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/lynx-vp
+        manufacturer: CCEI
+        model: Lynx VP
+        name: Lynx VP
+        identifiers: Lynx VP
+
+- sensor:
+    name: Volume total injecté depuis le debut
+    state_topic: "lynx_XXXXXXXXXXXX/u16_r/vol_tot_inject/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/lynx-vp
+        manufacturer: CCEI
+        model: Lynx VP
+        name: Lynx VP
+        identifiers: Lynx VP
+
+# Linx Configuration End
+

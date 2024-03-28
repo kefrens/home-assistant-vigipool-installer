@@ -1,0 +1,126 @@
+# Tild Configuration Begin
+
+- sensor:
+    name: "RSSI"
+    state_topic: "tild_XXXXXXXXXXXX/i8_r/rssi/info/reported"
+    unique_id: tild_XXXXXXXXXXXX.rssi
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+- sensor:
+    name: "ID"
+    state_topic: "tild_XXXXXXXXXXXX/s44_r/device_id/info/reported"
+    unique_id: tild_XXXXXXXXXXXX.device_id
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+- sensor:
+    name: "Serial Number"
+    state_topic: "tild_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
+    unique_id: tild_XXXXXXXXXXXX.serial_num
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+- light:
+    name: "Light"
+    state_topic: "tild_XXXXXXXXXXXX/u8_w/light_state/info/reported"
+    command_topic: "tild_XXXXXXXXXXXX/u8_w/light_state/info/desired"
+    unique_id: tild_XXXXXXXXXXXX.light_state
+    
+    payload_off: "0"
+    payload_on: "1"
+
+    brightness_state_topic: "tild_XXXXXXXXXXXX/u8_w/light_bright/info/reported"
+    brightness_command_topic: "tild_XXXXXXXXXXXX/u8_w/light_bright/info/desired"
+    brightness_scale: 4
+
+    effect_command_topic: "tild_XXXXXXXXXXXX/u8_w/light_code/info/desired"
+    effect_state_topic: "tild_XXXXXXXXXXXX/u8_w/light_code/info/reported"
+    effect_list:
+        - "Warm"
+        - "Cold"
+        - "Blue"
+        - "Lagoon"
+        - "Cyan"
+        - "Green"
+        - "Purple"
+        - "Magenta"
+        - "Pink"
+        - "Red"
+        - "Orange"
+        - "Gradiant"
+        - "Rainbow"
+        - "Parade"
+        - "Techno"
+        - "Horizon"
+        - "Random"
+        - "Magical"
+    effect_command_template: >
+        {%- if value == "Warm" -%} 0 {%- endif -%}
+        {%- if value == "Cold" -%} 1 {%- endif -%}
+        {%- if value == "Blue" -%} 2 {%- endif -%}
+        {%- if value == "Lagoon" -%} 3 {%- endif -%}
+        {%- if value == "Cyan" -%} 4 {%- endif -%}
+        {%- if value == "Green" -%} 10 {%- endif -%}
+        {%- if value == "Purple" -%} 5 {%- endif -%}
+        {%- if value == "Magenta" -%} 6 {%- endif -%}
+        {%- if value == "Pink" -%} 7 {%- endif -%}
+        {%- if value == "Red" -%} 8 {%- endif -%}
+        {%- if value == "Orange" -%} 9 {%- endif -%}
+        {%- if value == "Gradiant" -%} 16 {%- endif -%}
+        {%- if value == "Rainbow" -%} 17 {%- endif -%}
+        {%- if value == "Parade" -%} 18 {%- endif -%}
+        {%- if value == "Techno" -%} 19 {%- endif -%}
+        {%- if value == "Horizon" -%} 20 {%- endif -%}
+        {%- if value == "Random" -%} 21 {%- endif -%}
+        {%- if value == "Magical" -%} 22 {%- endif -%}
+
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+- switch:
+    name: Filtration
+    state_topic: "tild_XXXXXXXXXXXX/u8_w/filt_state/info/reported"
+    command_topic: "tild_XXXXXXXXXXXX/u8_w/filt_state/info/desired"
+    unique_id: tild_XXXXXXXXXXXX.filt_state
+    payload_on: "1"
+    payload_off: "0"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+- switch:
+    name: Auxiliary
+    state_topic: "tild_XXXXXXXXXXXX/u16_w/aux_conf/info/reported"
+    command_topic: "tild_XXXXXXXXXXXX/u16_w/aux_conf/info/desired"
+    unique_id: tild_XXXXXXXXXXXX.aux_conf
+    payload_off: "0"
+    payload_on: "1"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+        manufacturer: CCEI
+        model: Tild VP
+        name: Tild VP
+        identifiers: Tild VP
+
+# Tild Configuration End
+

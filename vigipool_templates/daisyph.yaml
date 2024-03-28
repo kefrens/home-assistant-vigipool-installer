@@ -1,0 +1,99 @@
+# DaisyPH Configuration Begin
+
+- sensor:
+    name: Injecting Product
+    state_topic: "daisyph_XXXXXXXXXXXX/u8_r/inject_on/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+    
+- sensor:
+    name: Vol 24h Inject
+    state_topic: "daisyph_XXXXXXXXXXXX/u16_r/vol_24h_inject/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+- sensor:
+    name: Vol Tot Inject
+    state_topic: "daisyph_XXXXXXXXXXXX/u16_r/vol_tot_inject/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+- sensor:
+    name: pH mode
+    state_topic: "daisyph_XXXXXXXXXXXX/u8_r/mode_ph/info/reported"
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+- number:
+    name: "Setpoint pH"
+    command_topic: "daisyph_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/desired"
+    state_topic: "daisyph_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/reported"
+    unique_id: "daisyph_XXXXXXXXXXXX.consigne_ph"
+    unit_of_measurement: "pH"
+    mode: slider
+    command_template: "{{ float(value) * 100 }}"
+    value_template: "{{ float(value) * 0.01 }}"
+    step: 0.2
+    min: 6.8
+    max: 7.6
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+- number:
+    name: Max volume injected in 24 hours
+    command_topic: "daisyph_XXXXXXXXXXXX/u16_w/vol_max_24h/info/desired"
+    state_topic: "daisyph_XXXXXXXXXXXX/u16_w/vol_max_24h/info/reported"
+    unique_id: "daisyph_XXXXXXXXXXXX.vol_max_24h"
+    unit_of_measurement: "L/day"
+    command_template: "{{ float(value) * 100 }}"
+    value_template: "{{ float(value) * 0.01 }}"
+    step: 0.10
+    min: 0
+    max: 2.00
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+- number:
+    name: Container volume
+    command_topic: "daisyph_XXXXXXXXXXXX/u16_w/vol_bac/info/desired"
+    state_topic: "daisyph_XXXXXXXXXXXX/u16_w/vol_bac/info/reported"
+    unique_id: "daisyph_XXXXXXXXXXXX.vol_bac"
+    unit_of_measurement: "L"
+    command_template: "{{ int(value) * 100 }}"
+    value_template: "{{ int(value) * 0.01 }}"
+    step: 1
+    min: 0
+    max: 50
+    device:
+        configuration_url: https://www.ccei-pool.com/fr/produit/daisy-vp
+        manufacturer: CCEI
+        model: Daisy pH
+        name: Daisy pH
+        identifiers: Daisy pH
+
+# DaisyPH Configuration End
+
