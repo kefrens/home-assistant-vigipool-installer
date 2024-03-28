@@ -18,6 +18,7 @@ while true; do
     read menu_choice
     if [ "$menu_choice" != "${menu_choice#[1eEnN]}" ] ;then 
         echo "You have selected '1 - EN - English'"
+        text_lang="en"
         text_step_1="Step 1 - Installing the necessary packages"
         text_install="Installation successful"
         text_step_2="Step 2 - Search for the VigiPool product in your network"
@@ -64,6 +65,7 @@ while true; do
         break
     elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
         echo "Vous avez sélectionné '2 - FR - Français'"
+        text_lang="fr"
         text_step_1="Étape 1 - Installation des packages nécessaires"
         text_install="Installation réussie"
         text_step_2="Étape 2 - Recherche du produit VigiPool dans votre réseau"
@@ -495,7 +497,7 @@ replace_name() {
     sed -i "s/$1/$2/" vigipool.yaml
 }
 
-if [[ "$text_step_1" == "Étape 1 - Installation des packages nécessaires" ]]; then
+if [[ $text_lang == "fr" ]]; then
     replace_name "Injecting Product" "Produit Injecté"
     replace_name "Total volume injected" "Volume total injecté"
     replace_name "Serial Number" "Numéro de série"
