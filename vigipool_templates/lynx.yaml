@@ -11,7 +11,7 @@
         identifiers: Lynx VP
     
 - sensor:
-    name: vol_24h_inject
+    name: Vol 24h Inject
     state_topic: "lynx_XXXXXXXXXXXX/u16_r/vol_24h_inject/info/reported"
     device:
         configuration_url: https://www.ccei-pool.com/fr/produit/lynx-vp
@@ -21,7 +21,7 @@
         identifiers: Lynx VP
 
 - sensor:
-    name: Volume total injecté depuis le debut
+    name: Total volume injected
     state_topic: "lynx_XXXXXXXXXXXX/u16_r/vol_tot_inject/info/reported"
     device:
         configuration_url: https://www.ccei-pool.com/fr/produit/lynx-vp

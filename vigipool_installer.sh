@@ -304,14 +304,14 @@ while true; do
             if grep -q vigipool.yaml "$File"; then
                 echo "nothing to do"
             else
-                sed -i '/mqtt:/a \ \ !include vigipool/vigipool.yaml' configuration.yaml
+                sed -i '/mqtt:/a \ \ !include vigipool_templates/vigipool.yaml' configuration.yaml
                 break
             fi
         else
             echo "" >> $File
             echo "# Vigipool" >> $File
             echo "mqtt:" >> $File
-            echo "  !include vigipool/vigipool.yaml" >> $File
+            echo "  !include vigipool_templates/vigipool.yaml" >> $File
         fi
 
         break
@@ -321,7 +321,7 @@ while true; do
         echo "$text_example :"
         echo "# Vigipool"
         echo "mqtt:"
-        echo "    !include vigipool/vigipool.yaml"
+        echo "    !include vigipool_templates/vigipool.yaml"
         break
     else
         echo The choice was not understood, please try again
@@ -409,8 +409,6 @@ vigiwatt=$(retrieving_device_names 'vigiwatt')
 x312=$(retrieving_device_names 'x312')
 ziphox=$(retrieving_device_names 'ziphox')
 
-$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox
-
 # String
 if [[ -z "$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox" ]]; then
     echo $text_error_no_device
@@ -460,6 +458,14 @@ replace_template_name "vigipool" $vigipool
 replace_template_name "vigiwatt" $vigiwatt
 replace_template_name "x312" $x312
 replace_template_name "ziphox" $ziphox
+
+replace_name() {
+    if test -f "vigipool.yaml"; then
+        sed -i "s/name\: $1/$2/" vigipool.yaml
+    fi
+}
+
+replace_name "Auxiliary 1 Mode" "Auxiliaire 1 Mode"
 
 found_and_integrate() {
     if [[ -z "$2" ]]; then

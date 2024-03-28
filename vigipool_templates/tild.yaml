@@ -1,7 +1,7 @@
 # Tild Configuration Begin
 
 - sensor:
-    name: "RSSI"
+    name: RSSI
     state_topic: "tild_XXXXXXXXXXXX/i8_r/rssi/info/reported"
     unique_id: tild_XXXXXXXXXXXX.rssi
     device:
@@ -12,7 +12,7 @@
         identifiers: Tild VP
 
 - sensor:
-    name: "ID"
+    name: ID
     state_topic: "tild_XXXXXXXXXXXX/s44_r/device_id/info/reported"
     unique_id: tild_XXXXXXXXXXXX.device_id
     device:
@@ -23,7 +23,7 @@
         identifiers: Tild VP
 
 - sensor:
-    name: "Serial Number"
+    name: Serial Number
     state_topic: "tild_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
     unique_id: tild_XXXXXXXXXXXX.serial_num
     device:
@@ -34,7 +34,7 @@
         identifiers: Tild VP
 
 - light:
-    name: "Light"
+    name: Light
     state_topic: "tild_XXXXXXXXXXXX/u8_w/light_state/info/reported"
     command_topic: "tild_XXXXXXXXXXXX/u8_w/light_state/info/desired"
     unique_id: tild_XXXXXXXXXXXX.light_state

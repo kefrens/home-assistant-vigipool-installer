@@ -55,7 +55,7 @@
         identifiers: VigiBrio
 
 - number:
-    name: "Vitesse de l'effet"
+    name: Speed
     command_topic: "x312_XXXXXXXXXXXX/u8_w/x3_speed/info/desired"
     state_topic: "x312_XXXXXXXXXXXX/u8_w/x3_speed/info/reported"
     unique_id: "x312_XXXXXXXXXXXX.x3_speed"
@@ -72,7 +72,7 @@
         identifiers: VigiBrio
 
 # - number:
-#     name: "Minuterie"
+#     name: Minuterie
 #     command_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/desired"
 #     state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
 #     unique_id: "x312_XXXXXXXXXXXX.light_timer"
@@ -95,7 +95,7 @@
 #         identifiers: VigiBrio
 
 - select:
-    name: "Time Selecter"
+    name: Time Selecter
     command_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/desired"
     state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
     unique_id: "x312_XXXXXXXXXXXX.light_timer"
@@ -421,7 +421,7 @@
     - "24:45"
 
 - sensor:
-    name: "Time Remaining"
+    name: Time Remaining
     state_topic: "x312_XXXXXXXXXXXX/u32_w/light_timer/info/reported"
     unique_id: "x312_XXXXXXXXXXXX.light_timer_display"
     unit_of_measurement: "minutes remaining"    

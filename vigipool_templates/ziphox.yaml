@@ -1,7 +1,7 @@
 # Ofix Configuration Begin
 
 - sensor:
-    name: "RSSI"
+    name: RSSI
     state_topic: "ziphox_XXXXXXXXXXXX/i8_r/rssi/info/reported"
     unique_id: ziphox_XXXXXXXXXXXX.rssi
     device:
@@ -12,7 +12,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "ID"
+    name: ID
     state_topic: "ziphox_XXXXXXXXXXXX/s44_r/device_id/info/reported"
     unique_id: ziphox_XXXXXXXXXXXX.device_id
     device:
@@ -23,7 +23,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "Serial Number"
+    name: Serial Number
     state_topic: "ziphox_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
     unique_id: ziphox_XXXXXXXXXXXX.serial_num
     device:
@@ -34,7 +34,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "pH Value"
+    name: pH Value
     state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_ph/value/reported"
     unique_id: ziphox_XXXXXXXXXXXX.value_ph
     value_template: |-
@@ -51,7 +51,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "ORP Value"
+    name: ORP Value
     state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_orp/value/reported"
     unique_id: ziphox_XXXXXXXXXXXX.value_orp
     value_template: |-
@@ -68,7 +68,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "Temperature"
+    name: Temperature
     state_topic: "ziphox_XXXXXXXXXXXX/u16_r/value_temp/value/reported"
     unique_id: ziphox_XXXXXXXXXXXX.value_temp
     value_template: |-
@@ -85,7 +85,7 @@
         identifiers: Ofix VP
 
 - sensor:
-    name: "Flow"
+    name: Flow
     state_topic: "ziphox_XXXXXXXXXXXX/u8_r/flow_on/value/reported"
     unique_id: ziphox_XXXXXXXXXXXX.flow_on
     value_template: |-

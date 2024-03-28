@@ -41,7 +41,7 @@
         identifiers: Daisy pH
 
 - number:
-    name: "Setpoint pH"
+    name: Setpoint pH
     command_topic: "daisyph_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/desired"
     state_topic: "daisyph_XXXXXXXXXXXX/u16_w/consigne_ph/consigne/reported"
     unique_id: "daisyph_XXXXXXXXXXXX.consigne_ph"
