@@ -492,9 +492,7 @@ found_and_integrate "x312" $x312
 found_and_integrate "ziphox" $ziphox
 
 replace_name() {
-    if test -f "vigipool.yaml"; then
-        sed -i "s/$1/$2/" vigipool.yaml
-    fi
+    sed -i "s/$1/$2/" vigipool.yaml
 }
 
 replace_name "pH Setpoint" "Consigne pH"
