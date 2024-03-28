@@ -467,7 +467,7 @@ replace_template_name "ziphox" $ziphox
 
 replace_name() {
     if test -f "vigipool.yaml"; then
-        sed -i "s/name\: $1/$2/" vigipool.yaml
+        sed -i "s/$1/$2/" vigipool.yaml
     fi
 }
 
@@ -522,6 +522,7 @@ if [[ -z "$ha_core_check" ]]; then
             # 1 - Automatic
             echo "$text_you '$text_reboot_now'"
             ha core rebuild
+            echo "$text_end"
             break
         elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
             # 2 - Manual
@@ -531,7 +532,6 @@ if [[ -z "$ha_core_check" ]]; then
             echo The choice was not understood, please try again
         fi
     done
-    echo "$text_end"
 elif [[ -n "$ha_core_check" ]]; then
     echo "";
     echo "$text_prob_1 : "
