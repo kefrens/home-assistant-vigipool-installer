@@ -52,12 +52,15 @@ while true; do
         text_displaying="Displaying results"
         text_integration="integration of information into the configuration"
         text_step_5="Step 5 - checking the changes and restarting"
-        text_modif="The modification of your configuration went well, we will start the restart"
+        text_modif="The modification of your configuration went well"
         text_end="The rebuild is completed, you can go to your dashboard, VigiPool products are integrated"
         text_prob_1="There was a problem during the installation, here is the error"
         text_prob_2="if you want to undo changes, you can use the backup named"
         text_nothing="The configuration is already there, no changes will be made"
         text_error_no_device="No Vigipool compatible device was found, the installation is canceled, please check if the devices are connected to your Wi-Fi and if the Home Assistant MQTT is correctly configured."
+        text_reboot="A reboot is required to see the changes in the dashboard, do you want to do it now or do you want to do it yourself later?"
+        text_reboot_now="Restart now"
+        text_reboot_later="Manually restart later"
         break
     elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
         echo "Vous avez sélectionné '2 - FR - Français'"
@@ -95,12 +98,15 @@ while true; do
         text_displaying="Affichage des résultats"
         text_integration="intégration des informations dans la configuration"
         text_step_5="Étape 5 - vérification des modifications et redémarrage"
-        text_modif="La modification de votre configuration s'est bien déroulée, nous allons lancer le redémarrage"
+        text_modif="La modification de votre configuration s'est bien déroulée"
         text_end="La reconstruction est terminée, vous pouvez accéder à votre tableau de bord, les produits VigiPool sont intégrés"
         text_prob_1="Il y a eu un problème lors de l'installation, voici l'erreur"
         text_prob_2="Si vous souhaitez annuler les modifications, vous pouvez utiliser la sauvegarde nommée"
         text_nothing="La configuration est déjà là, aucune modification ne sera faite"
         text_error_no_device="Aucun périphérique compatible Vigipool a été trouvé, l'installation est annulée, veuillez vérifier si les périphériques sont bien connectés à votre Wi-Fi et si le MQTT de Home Assistant est bien configuré."
+        text_reboot="Un redémarrage est nécessaire pour voir les changements dans le tableau de bord, voulez-vous le faire maintenant ou voulez-vous le faire vous-même plus tard ?"
+        text_reboot_now="Redémarrer maintenant"
+        text_reboot_later="Redémarrer manuellement plus tard"
         break
     else
         echo The choice was not understood, please try again \/ Le choix n\'a pas été compris, veuillez réessayer
@@ -506,7 +512,25 @@ ha_core_check=$(head -n 1 temp.txt)
 echo $ha_core_check
 if [[ -z "$ha_core_check" ]]; then
     echo "$text_modif"
-    ha core rebuild
+    while true; do
+        echo "$text_reboot"
+        echo "1 - $text_reboot_now";
+        echo "2 - $text_reboot_later";
+        echo "$text_please : "
+        read menu_choice
+        if [ "$menu_choice" != "${menu_choice#[1aA]}" ] ;then 
+            # 1 - Automatic
+            echo "$text_you '$text_reboot_now'"
+            ha core rebuild
+            break
+        elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
+            # 2 - Manual
+            echo "$text_you '$text_reboot_later'"
+            break
+        else
+            echo The choice was not understood, please try again
+        fi
+    done
     echo "$text_end"
 elif [[ -n "$ha_core_check" ]]; then
     echo "";
