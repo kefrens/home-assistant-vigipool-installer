@@ -1,4 +1,4 @@
-# Vigipool
+# Home Assistant Vigipool Installer 
 
 Vigipool est une appli innovante pour contrôler et piloter votre piscine à distance.
 
