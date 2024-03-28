@@ -109,7 +109,7 @@ done
 
 
 # Configuration Variables 
-link_to_scripts="192.168.1.1"
+link_to_scripts="https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/"
 ip_address_mqtt_debug="192.168.2.2"
 debug=false
 templates=anteam anteaox anteavs daisyox daisyph lynx phileox tild vigipool vigiwatt x312 ziphox
@@ -127,7 +127,7 @@ if [[ $debug == false ]]; then
 fi
 
 # Downloading and launching and removing the installer
-# wget -q http://192.168.1.1/ha/vigipool_installer.sh && chmod +x vigipool_installer.sh && bash vigipool_installer.sh
+# wget -q https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/vigipool_installer.sh && chmod +x vigipool_installer.sh && bash vigipool_installer.sh
 if [[ $debug == false ]]; then
     rm vigipool_installer.sh
 fi
@@ -334,15 +334,18 @@ echo "";
 # Managing vigipool.yaml file
 
 echo "$text_creation"
-mkdir -p vigipool
-cd vigipool
+mkdir -p vigipool_templates
+cd vigipool_templates
 
 echo "$text_cleaning"
 clean_and_download_template() {
+
+    echo "$text_cleaning ($1)"
+
     if test -f "$1.yaml"; then
         rm $1.yaml
     fi
-    wget -q http://$link_to_scripts/ha/vigipool/$1.yaml
+    wget -q http://$link_to_scripts/vigipool_templates/$1.yaml
 }
 
 clean_and_download_template "anteam" $anteam
