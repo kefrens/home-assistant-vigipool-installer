@@ -465,14 +465,6 @@ replace_template_name "vigiwatt" $vigiwatt
 replace_template_name "x312" $x312
 replace_template_name "ziphox" $ziphox
 
-replace_name() {
-    if test -f "vigipool.yaml"; then
-        sed -i "s/$1/$2/" vigipool.yaml
-    fi
-}
-
-replace_name "pH Setpoint" "Consigne pH"
-
 found_and_integrate() {
     if [[ -z "$2" ]]; then
         echo "$1 not found"
@@ -484,7 +476,7 @@ found_and_integrate() {
 }
 
 echo "" > vigipool.yaml
-echo cleaning vigipoolyaml
+echo cleaning vigipool.yaml
 
 found_and_integrate "anteam" $anteam
 found_and_integrate "anteaox" $anteaox
@@ -498,6 +490,14 @@ found_and_integrate "vigipool" $vigipool
 found_and_integrate "vigiwatt" $vigiwatt
 found_and_integrate "x312" $x312
 found_and_integrate "ziphox" $ziphox
+
+replace_name() {
+    if test -f "vigipool.yaml"; then
+        sed -i "s/$1/$2/" vigipool.yaml
+    fi
+}
+
+replace_name "pH Setpoint" "Consigne pH"
 
 echo "";
 echo "";
