@@ -526,6 +526,8 @@ if [[ $text_lang == "fr" ]]; then
     replace_name "Timer" "Minuterie"
     replace_name "Time Selecter" "Sélecteur de temps"
     replace_name "Time Remaining" "Temps restant"
+    replace_name "pH Mode" "Mode du pH"
+    replace_name "pH Value" "Valeur du pH"
 fi
 
 echo "";
@@ -533,7 +535,6 @@ echo "";
 echo "--- Step 5 - Check and Reload ---"
 echo "";
 
-# echo doqgf::oq:dg:n >> vigipool.yaml
 ha_core_check=$(ha core check)
 ha_core_save=$ha_core_check
 echo $ha_core_check | grep -Eo "Error" > temp.txt
