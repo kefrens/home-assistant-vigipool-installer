@@ -388,7 +388,7 @@ echo "$text_mqtt"
 function retrieving_device_names() {
     # echo "retrieving_device_names $1";
 
-    echo $mosquitto_sub_raw | grep -Eo "$1\_............" > temp.txt
+    # echo $mosquitto_sub_raw | grep -Eo "$1\_............" > temp.txt
 
     device_name=$(head -n 1 temp.txt)
     # echo "device_name = $device_name";
@@ -427,24 +427,24 @@ else
     echo "This never happens"
 fi
 
-echo "$text_displaying"
+# echo "$text_displaying"
 
-show_results() {
-    echo $1 = $2
-}
+# show_results() {
+#     echo $1 = $2
+# }
 
-show_results "anteam" $anteam
-show_results "anteaox" $anteaox
-show_results "anteavs" $anteavs
-show_results "daisyox" $daisyox
-show_results "daisyph" $daisyph
-show_results "lynx" $lynx
-show_results "phileox" $phileox
-show_results "tild" $tild
-show_results "vigipool" $vigipool
-show_results "vigiwatt" $vigiwatt
-show_results "x312" $x312
-show_results "ziphox" $ziphox
+# show_results "anteam" $anteam
+# show_results "anteaox" $anteaox
+# show_results "anteavs" $anteavs
+# show_results "daisyox" $daisyox
+# show_results "daisyph" $daisyph
+# show_results "lynx" $lynx
+# show_results "phileox" $phileox
+# show_results "tild" $tild
+# show_results "vigipool" $vigipool
+# show_results "vigiwatt" $vigiwatt
+# show_results "x312" $x312
+# show_results "ziphox" $ziphox
 
 echo "$text_integration"
 
@@ -469,10 +469,11 @@ replace_template_name "ziphox" $ziphox
 
 found_and_integrate() {
     if [[ -z "$2" ]]; then
-        echo "$1 not found"
+        # echo "$1 not found"
     elif [[ -n "$2" ]]; then
         if test -f "$1.yaml"; then
-          cat $1.yaml >> vigipool.yaml
+            echo "$1 found"
+            cat $1.yaml >> vigipool.yaml
         fi
     fi
 }
