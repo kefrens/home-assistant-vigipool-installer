@@ -493,11 +493,13 @@ found_and_integrate "vigiwatt" $vigiwatt
 found_and_integrate "x312" $x312
 found_and_integrate "ziphox" $ziphox
 
+
 replace_name() {
     sed -i "s/$1/$2/" vigipool.yaml
 }
 
 if [[ $text_lang == "fr" ]]; then
+    echo "-> fr"
     replace_name "Injecting Product" "Produit Injecté"
     replace_name "Total volume injected" "Volume total injecté"
     replace_name "Serial Number" "Numéro de série"
