@@ -539,7 +539,7 @@ fi
 
 echo "";
 echo "";
-echo "--- Step 5 - Check and Reload ---"
+echo "--- $text_step_5 ---"
 echo "";
 
 ha_core_check=$(ha core check)
