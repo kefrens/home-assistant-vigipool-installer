@@ -469,7 +469,7 @@ replace_template_name "ziphox" $ziphox
 
 found_and_integrate() {
     if [[ -z "$2" ]]; then
-        # echo "$1 not found"
+        echo "$1 not found"
     elif [[ -n "$2" ]]; then
         if test -f "$1.yaml"; then
             echo "$1 found"
