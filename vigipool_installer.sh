@@ -62,6 +62,9 @@ while true; do
         text_reboot="A reboot is required to see the changes in the dashboard, do you want to do it now or do you want to do it yourself later?"
         text_reboot_now="Restart now"
         text_reboot_later="Manually restart later"
+        text_already_ready="The configuration.yaml file is already ready"
+        text_device_found="Device detected"
+        text_device_missing="Device missing"
         break
     elif [ "$menu_choice" != "${menu_choice#[2mM]}" ] ;then 
         echo "Vous avez sélectionné '2 - FR - Français'"
@@ -109,6 +112,9 @@ while true; do
         text_reboot="Un redémarrage est nécessaire pour voir les changements dans le tableau de bord, voulez-vous le faire maintenant ou voulez-vous le faire vous-même plus tard ?"
         text_reboot_now="Redémarrer maintenant"
         text_reboot_later="Redémarrer manuellement plus tard"
+        text_already_ready="Le fichier configuration.yaml est déjà prêt"
+        text_device_found="Périphérique détecté"
+        text_device_missing="Périphérique absent"
         break
     else
         echo The choice was not understood, please try again \/ Le choix n\'a pas été compris, veuillez réessayer
@@ -310,7 +316,7 @@ while true; do
         File="configuration.yaml"
         if grep -q mqtt "$File"; then
             if grep -q vigipool.yaml "$File"; then
-                echo "nothing to do"
+                echo "$text_already_ready"
             else
                 sed -i '/mqtt:/a \ \ !include vigipool_templates/vigipool.yaml' configuration.yaml
                 break
@@ -421,7 +427,7 @@ ziphox=$(retrieving_device_names 'ziphox')
 if [[ -z "$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox" ]]; then
     echo $text_error_no_device
     exit 1
-elif [[ -n "$string" ]]; then
+elif [[ -n "$anteam$anteaox$anteavs$daisyox$daisyph$lynx$phileox$tild$vigipool$vigiwatt$x312$ziphox" ]]; then
     echo "Ok"
 else
     echo "This never happens"
@@ -469,10 +475,10 @@ replace_template_name "ziphox" $ziphox
 
 found_and_integrate() {
     if [[ -z "$2" ]]; then
-        echo "$1 not found"
+        echo "$text_device_missing : $1"
     elif [[ -n "$2" ]]; then
         if test -f "$1.yaml"; then
-            echo "$1 found"
+            echo "$text_device_found : $1"
             cat $1.yaml >> vigipool.yaml
         fi
     fi
