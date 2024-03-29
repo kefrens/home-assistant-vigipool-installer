@@ -350,7 +350,7 @@ cd vigipool_templates
 echo "$text_cleaning"
 clean_and_download_template() {
 
-    echo "$text_cleaning ($1)"
+    # echo "$text_cleaning ($1)"
 
     if test -f "$1.yaml"; then
         rm $1.yaml
@@ -388,7 +388,7 @@ echo "$text_mqtt"
 function retrieving_device_names() {
     # echo "retrieving_device_names $1";
 
-    # echo $mosquitto_sub_raw | grep -Eo "$1\_............" > temp.txt
+    echo $mosquitto_sub_raw | grep -Eo "$1\_............" > temp.txt
 
     device_name=$(head -n 1 temp.txt)
     # echo "device_name = $device_name";
