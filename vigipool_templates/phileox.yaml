@@ -119,7 +119,7 @@
         identifiers: Phileo VP
 
 - sensor:
-    name: mode_ph
+    name: pH Mode
     state_topic: "phileox_XXXXXXXXXXXX/u8_r/mode_ph/info/reported"
     unique_id: phileox_XXXXXXXXXXXX.mode_ph
     value_template: |-
