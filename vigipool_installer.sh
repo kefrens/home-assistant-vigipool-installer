@@ -495,7 +495,7 @@ found_and_integrate "ziphox" $ziphox
 
 
 replace_name() {
-    sed -i "s/$1/$2/" vigipool.yaml
+    sed -i "s/name: $1/name: $2/" vigipool.yaml
 }
 
 if [[ $text_lang == "fr" ]]; then
@@ -513,8 +513,8 @@ if [[ $text_lang == "fr" ]]; then
     replace_name "Filtration" "Filtration"
     replace_name "Auxiliary" "Auxiliary"
     replace_name "AnteaM" "AnteaM"
-    replace_name "Light Mode" "Éclairage Mode"
-    replace_name "Filtration Mode" "Mode de filtration "
+    replace_name "Light Mode" "Mode d'éclairage"
+    replace_name "Filtration Mode" "Mode de filtration"
     replace_name "Auxiliary 1 Mode" "Mode de l'auxiliaire 1"
     replace_name "Auxiliary 2 Mode" "Mode de l'auxiliaire 2"
     replace_name "ORP Value" "Valeur de l'ORP"
@@ -524,8 +524,8 @@ if [[ $text_lang == "fr" ]]; then
     replace_name "pH Setpoint" "pH Setpoint"
     replace_name "Speed" "Vitesse"
     replace_name "Timer" "Minuterie"
-    replace_name "Time Selecter" "Time Selecter"
-    replace_name "Time Remaining" "Time Remaining"
+    replace_name "Time Selecter" "Sélecteur de temps"
+    replace_name "Time Remaining" "Temps restant"
 fi
 
 echo "";
