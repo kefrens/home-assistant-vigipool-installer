@@ -219,7 +219,7 @@ while [[ "$ip_address" == "" ]]; do
             
             echo -e '\e[1A\e[K Scan : '$i'/'$number_ip_address_to_test '('${ip_address_to_test[i]}')'
             
-            nmap_mqtt_data=$(nmap --min-rtt-timeout 0.5 --max-rtt-timeout 0.5 --initial-rtt-timeout 0.5 -Pn --host-timeout 0.5 --script-timeout 0.5 -q -p 1883 ${ip_address_to_test[i]})
+            nmap_mqtt_data=$(nmap --min-rtt-timeout 0.3 --max-rtt-timeout 0.3 --initial-rtt-timeout 0.3 -Pn --host-timeout 0.3 --script-timeout 0.3 -q -p 1883 ${ip_address_to_test[i]})
             cat_grep=$(echo $nmap_mqtt_data | grep -q "1883/tcp open mqtt" ; echo $?)
 
             if [[ $debug == true ]]; then
