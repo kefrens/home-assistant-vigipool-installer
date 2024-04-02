@@ -102,7 +102,7 @@
         identifiers: Phileo VP
 
 - sensor:
-    name: Value Ph
+    name: pH Value
     state_topic: "phileox_XXXXXXXXXXXX/u16_r/value_ph/value/reported"
     unique_id: phileox_XXXXXXXXXXXX.value_ph
     value_template: |-
