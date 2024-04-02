@@ -34,6 +34,7 @@ while true; do
         text_what_1="Use the IP address displayed above"
         text_what_2="Continue scanning to find another IP address"
         text_what_3="Enter the IP manually"
+        text_what_4="View IP address MQTT data"
         text_please_3="Please write your answer (1 or 2) then press the "enter" key"
         text_please_manu="Please enter the IP address in the format of the following example"
         text_choice_error="The choice was not understood, please try again"
@@ -84,6 +85,7 @@ while true; do
         text_what_1="Utiliser l'adresse IP qui s'affiche au-dessus"
         text_what_2="Continuer de scanner pour trouver une autre adresse IP"
         text_what_3="Entrer l'IP a la main"
+        text_what_4="Voir les données MQTT de l'adresse IP"
         text_please_3="Please write your answer (1 2 or 3) then press the "enter" key"
         text_please_manu="Veuillez entrer l'adresse IP dans le format de l'exemple suivant"
         text_choice_error="Le choix n\'a pas été compris, veuillez réessayer"
@@ -233,6 +235,7 @@ while [[ "$ip_address" == "" ]]; do
                     echo "1 - $text_what_1";
                     echo "2 - $text_what_2";
                     echo "3 - $text_what_3";
+                    echo "4 - $text_what_4";
                     echo "$text_please_3 : "
                     read menu_choice
                     if [ "$menu_choice" != "${menu_choice#[1]}" ] ;then 
@@ -250,6 +253,11 @@ while [[ "$ip_address" == "" ]]; do
                         echo "$text_please_manu : $ip_address_mqtt_debug"
                         read ip_address
                         break
+                    elif [ "$menu_choice" != "${menu_choice#[4]}" ] ;then 
+                        # 4 - View IP address MQTT data
+                        echo "$text_you '$text_what_4'"
+                        mosquitto_sub_raw=$(timeout 1 mosquitto_sub -h ${ip_address_to_test[i]} --pretty --verbose --topic "#")
+                        echo "mosquitto_sub_raw = $mosquitto_sub_raw"
                     else
                         echo "$text_choice_error"
                     fi
