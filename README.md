@@ -16,7 +16,7 @@ Liste des équipements Vigipool compatibles avec l'installateur :
 
 ### Home Assisttant MQTT
 
-- Home Assisstant ne peut pas se connecter sur plusieurs serveurs MQTT donc ce script n'est pas utilisable si le produit Vigipool n'est pas le serveur MQTT
+- Attention ! Home Assisstant ne peut pas se connecter sur plusieurs serveurs MQTT donc ce script n'est pas utilisable si le produit Vigipool n'est pas le serveur MQTT
 
 - Il faut auparavant avoir déjà configuré le MQTT de Home Assistant avant de lancer l'installeur. Pour cela, voir ce lien : https://www.home-assistant.io/integrations/mqtt/
 
