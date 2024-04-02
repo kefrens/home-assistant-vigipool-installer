@@ -173,7 +173,7 @@ if [[ $debug == true ]]; then
 fi
 
 ## Remove local IP
-ip_address_inet=( "${ip_address_inet[@]/$172*/}" )
+ip_address_inet=( "${ip_address_inet[@]/$127*/}" )
 
 ## recovery of machine IP address ranges and processing of information
 ip_address_to_test=()
