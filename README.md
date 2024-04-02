@@ -1,40 +1,43 @@
 # Home Assistant Vigipool Installer 
 
-Vigipool est une appli innovante pour contrôler et piloter votre piscine à distance.
+[![en](https://img.shields.io/badge/lang-en-black.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-black.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.fr.md)
 
-Cet installateur va configurer Home Assistant pour ajouter les principales fonctionnalités de l'application Vigipool à votre interface.
+Vigipool is an innovative app to control and manage your swimming pool remotely.
 
-Liste des équipements Vigipool compatibles avec l'installateur : 
+This installer will configure Home Assistant to add the main features of the Vigipool application to your interface.
+
+List of Vigipool equipment compatible with the installer:
 - Tild
 - Phileo VP
 - Ofix
 - AnteaM
 - Zelia
-- VigiBrio 
+- VigiBrio
 
-## Prérequis
+## Prerequisites
 
-### Home Assisttant MQTT
+### Home Assistant MQTT
 
-- Attention ! Home Assisstant ne peut pas se connecter sur plusieurs serveurs MQTT donc ce script n'est pas utilisable si le produit Vigipool n'est pas le serveur MQTT
+- Warning ! Home Assistant cannot connect to several MQTT servers so this script cannot be used if the Vigipool product is not the MQTT server
 
-- Il faut auparavant avoir déjà configuré le MQTT de Home Assistant avant de lancer l'installeur. Pour cela, voir ce lien : https://www.home-assistant.io/integrations/mqtt/
+- You must first have already configured the Home Assistant MQTT before launching the installer. To do this, see this link: https://www.home-assistant.io/integrations/mqtt/
 
-### Produit Vigipool
+### Vigipool product
 
-- Avoir un produit Vigipool
-- Utiliser l'application mobile Vigipool pour se connecter au produit Vigipool puis configurer le produit pour le connecter à votre Wi-Fi et connaitre son IP
+- Have a Vigipool product
+- Use the Vigipool mobile application to connect to the Vigipool product then configure the product to connect it to your Wi-Fi and know its IP
 
 ## Configuration
 
-1. Connectez-vous à votre interface Home Assistant (http://homeassistant:8123/)
-1. Cliquez sur "Paramètres"
-1. Cliquez sur "Modules complémentaires"
-1. Cliquez sur "Boutique des modules complémentaires"
-1. Cliquez sur "Terminal & SSH"
-1. Cliquez sur "Installer"
-1. Cliquez sur "Ouvrir l'interface utilisateur web"
-1. Copier la ligne suivante : `wget -q https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/vigipool_installer.sh && chmod +x vigipool_installer.sh && bash vigipool_installer.sh`
-1. Coller la ligne dans le terminal. Pour cela, vous pouvez utiliser le raccourci clavier suivant "Ctrl+shift+v" ou celui-ci "shift+ins"
-1. Suivez les instructions qui s'affichent à l'écran.
-1. Une fois terminé, allez dans votre tableau de bord pour voir les ajouts.
+1. Connect to your Home Assistant interface (http://homeassistant:8123/)
+1. Click “Settings”
+1. Click “Add-ons”
+1. Click “Add-ons Store”
+1. Click “Terminal & SSH”
+1. Click “Install”
+1. Click "Open Web UI"
+1. Copy the following line: `wget -q https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/vigipool_installer.sh && chmod +x vigipool_installer.sh && bash vigipool_installer.sh`
+1. Paste the line into the terminal. To do this, you can use the following keyboard shortcut "Ctrl+shift+v" or this one "shift+ins"
+1. Follow the terminal instructions.
+1. Once it's done, go to your dashboard to see the changes.
