@@ -170,6 +170,9 @@ if [[ $debug == true ]]; then
     echo ""
 fi
 
+## Remove local IP
+ip_address_inet=( "${ip_address_inet[@]/$172*/}" )
+
 ## recovery of machine IP address ranges and processing of information
 ip_address_to_test=()
 for i in "${ip_address_inet[@]}"; do
