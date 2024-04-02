@@ -1,7 +1,7 @@
 # Home Assistant Vigipool Installer 
 
-[![en](https://img.shields.io/badge/lang-en-black.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.md)
-[![fr](https://img.shields.io/badge/lang-fr-black.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.fr.md)
+[![en](https://img.shields.io/badge/lang-en-white.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/blob/master/README.fr.md)
 
 Vigipool est une appli innovante pour contrôler et piloter votre piscine à distance.
 
