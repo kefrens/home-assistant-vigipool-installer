@@ -7,7 +7,7 @@ Vigipool is an innovative app to control and manage your swimming pool remotely.
 
 This installer will configure Home Assistant to add the main features of the Vigipool application to your interface.
 
-List of Vigipool equipment compatible with the installer:
+List of Vigipool devices compatible with the installer:
 - Tild
 - Phileo VP
 - Ofix
