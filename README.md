@@ -36,6 +36,7 @@ List of Vigipool devices compatible with the installer:
 1. Click “Add-ons Store”
 1. Click “Terminal & SSH”
 1. Click “Install”
+1. Click “Start”
 1. Click "Open Web UI"
 1. Copy the following line: `wget -q https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/vigipool_installer.sh && chmod +x vigipool_installer.sh && bash vigipool_installer.sh`
 1. Paste the line into the terminal. To do this, you can use the following keyboard shortcut "Ctrl+shift+v" or this one "shift+ins"
