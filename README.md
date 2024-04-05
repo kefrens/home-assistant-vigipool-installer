@@ -34,7 +34,7 @@ List of Vigipool devices compatible with the installer:
 1. Click “Settings” ![step 1](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/1.png)
 1. Click “Add-ons” ![step 2](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/2.png)
 1. Click “Add-ons Store” ![step 3](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/3.png)
-1. Click “Terminal & SSH” ![step 4](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/4.png)
+1. Click “Terminal & SSH” (If the module does not appear, it is because your account is not in advanced mode, a message should automatically appear which will redirect you to the menu to activate this functionality if this is the case.) ![step 4](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/4.png)
 1. Click “Install” ![step 5](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/5.png)
 1. Click “Start” ![step 6](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/6.png)
 1. Click "Open Web UI" ![step 7](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/en/7.png)

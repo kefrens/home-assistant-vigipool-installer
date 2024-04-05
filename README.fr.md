@@ -34,7 +34,7 @@ Liste des équipements Vigipool compatibles avec l'installateur :
 1. Cliquez sur "Paramètres" ![step 1](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/1.png)
 1. Cliquez sur "Modules complémentaires" ![step 2](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/2.png)
 1. Cliquez sur "Boutique des modules complémentaires" ![step 3](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/3.png)
-1. Cliquez sur "Terminal & SSH" ![step 4](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/4.png)
+1. Cliquez sur "Terminal & SSH" (Si le module n'apparait pas, c'est que votre compte n'est pas en mode avancée, un message devrait automatiquement apparaître qui vous redirigera vers le menu pour activer cette fonctionnalité si c'est le cas.) ![step 4](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/4.png)
 1. Cliquez sur "Installer" ![step 5](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/5.png)
 1. Cliquez sur "Démarrer" ![step 6](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/6.png)
 1. Cliquez sur "Ouvrir l'interface utilisateur web" ![step 7](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/7.png)
