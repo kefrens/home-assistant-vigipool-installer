@@ -30,7 +30,7 @@ Liste des équipements Vigipool compatibles avec l'installateur :
 
 ## Configuration
 
-1. Connectez-vous à votre interface Home Assistant (http://homeassistant:8123/)
+1. Connectez-vous à votre interface Home Assistant (http://homeassistant:8123/) ![alt text](https://raw.githubusercontent.com/developer-ccei-pool/home-assistant-vigipool-installer/main/img/fr/1.png)
 1. Cliquez sur "Paramètres"
 1. Cliquez sur "Modules complémentaires"
 1. Cliquez sur "Boutique des modules complémentaires"
