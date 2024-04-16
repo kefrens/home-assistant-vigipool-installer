@@ -24,14 +24,14 @@
 
 - sensor:
     name: Serial Number
-    state_topic: "anteam_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
-    unique_id: anteam_XXXXXXXXXXXX.serial_num
+    state_topic: "daisyox_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
+    unique_id: daisyox_XXXXXXXXXXXX.serial_num
     device:
         # configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
         manufacturer: CCEI
-        model: AnteaM
-        name: AnteaM
-        identifiers: AnteaM
+        model: Daisy OX
+        name: Daisy OX
+        identifiers: Daisy OX
 
 - number:
     name: ORP Setpoint
