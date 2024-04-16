@@ -3,7 +3,7 @@
 # Init Functions
 
 echo ""
-echo "----- Start of installation of VigiPool equipment -----"
+echo "----- Home Assistant Vigipool Installer -----"
 echo ""
 
 # Language manager
