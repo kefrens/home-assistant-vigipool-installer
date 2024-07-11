@@ -210,7 +210,7 @@
     - "OFF"
     - "ON"
     - "PROG"
-    # - "AUTO"
+    - "AUTO"
 
 ## Aux 2
 ### Sensor
