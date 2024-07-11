@@ -2,38 +2,38 @@
 
 ## Common
 
-- sensor:
-    name: RSSI
-    state_topic: "anteam_XXXXXXXXXXXX/i8_r/rssi/info/reported"
-    unique_id: anteam_XXXXXXXXXXXX.rssi
-    device:
-        # configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
-        manufacturer: CCEI
-        model: AnteaM
-        name: AnteaM
-        identifiers: AnteaM
+# - sensor:
+#     name: RSSI
+#     state_topic: "anteam_XXXXXXXXXXXX/i8_r/rssi/info/reported"
+#     unique_id: anteam_XXXXXXXXXXXX.rssi
+#     device:
+#         # configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+#         manufacturer: CCEI
+#         model: AnteaM
+#         name: AnteaM
+#         identifiers: AnteaM
 
-- sensor:
-    name: ID
-    state_topic: "anteam_XXXXXXXXXXXX/s44_r/device_id/info/reported"
-    unique_id: anteam_XXXXXXXXXXXX.device_id
-    device:
-        # configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
-        manufacturer: CCEI
-        model: AnteaM
-        name: AnteaM
-        identifiers: AnteaM
+# - sensor:
+#     name: ID
+#     state_topic: "anteam_XXXXXXXXXXXX/s44_r/device_id/info/reported"
+#     unique_id: anteam_XXXXXXXXXXXX.device_id
+#     device:
+#         # configuration_url: https://www.ccei-pool.com/fr/produit/tild-vp
+#         manufacturer: CCEI
+#         model: AnteaM
+#         name: AnteaM
+#         identifiers: AnteaM
 
-- sensor:
-    name: Serial Number
-    state_topic: "anteam_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
-    unique_id: anteam_XXXXXXXXXXXX.serial_num
-    device:
-        configuration_url: https://www.poolplanet.com/produit/antea-vp-antenne-connectee-a-raccorder-aux-equipements-compatibles
-        manufacturer: CCEI
-        model: AnteaM
-        name: AnteaM
-        identifiers: AnteaM
+# - sensor:
+#     name: Serial Number
+#     state_topic: "anteam_XXXXXXXXXXXX/s33_r/serial_num/info/reported"
+#     unique_id: anteam_XXXXXXXXXXXX.serial_num
+#     device:
+#         configuration_url: https://www.poolplanet.com/produit/antea-vp-antenne-connectee-a-raccorder-aux-equipements-compatibles
+#         manufacturer: CCEI
+#         model: AnteaM
+#         name: AnteaM
+#         identifiers: AnteaM
 
 ## Light
 ### Sensor
