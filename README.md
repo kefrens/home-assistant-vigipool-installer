@@ -19,7 +19,7 @@ List of Vigipool devices compatible with the installer:
 
 ### Home Assistant MQTT
 
-- Warning ! Home Assistant cannot connect to multiple MQTT servers, a solution to this problem is to use Node-Red. To help you, you can use the following script: https://github.com/developer-ccei-pool/nodered-vigipool-config-generator/blob/main/README.md
+- Warning ! Home Assistant cannot connect to multiple MQTT servers, this means that this script cannot be used if the Vigipool product is not the Home Assistant MQTT server, a solution to this problem is to use Node-Red. To help you, you can use the following script: https://github.com/developer-ccei-pool/nodered-vigipool-config-generator/blob/main/README.md
 
 - You must first have already configured the Home Assistant MQTT before launching the installer. To do this, see this link: https://www.home-assistant.io/integrations/mqtt/
 
