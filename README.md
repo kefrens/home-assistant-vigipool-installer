@@ -42,9 +42,23 @@ Please note that to use this method, you will probably have to completely restar
 ```
 connection bridge-01
 address 192.168.1.XX:1883 # Ip address of your vigipool device
-topic # out 0
-topic # in 0
+topic # both 0
+cleansession true
+start_type automatic
+try_private false
+restart_timeout 10
+bridge_protocol_version mqttv31
+bridge_attempt_unsubscribe false
+#log_type all
 ```
+! **Note:**
+Having the following :
+_topic # both 0_ will sync *ALL* messages between the Vigipool broker and the HA broker. (this means Vigipool will receive all messages from HA as well) which is **NOT** recommended, especially on large MQTT infra.
+Instead it is preferable to filter the messages (inbound and outbound) like this:
+topic tild_XXX/u16_r/value_temp/# out 0  # Only the messages on this topic will flow from the TILD to the HA Broker (useful to get the temp info as it's only 1 way)
+topic anteavs_XXX/# both 0 # All subtopics will flow both ways (inbound and outbound) from AnteaVS to HA Broker.  This is useful for example on data that needs to be sync'd both ways : like get the Pump speed from Antea + Set the pump speed from HA.
+REMIND to customize the topics based on your configuration (you can always use MQTT Explorer). In my setup AnteaVS is the MQTT Vigipool proxy or "Centrale Vigipool"; For some reason it's more stable
+
 Thanks to [kefrens](https://github.com/kefrens) for finding this method (https://github.com/developer-ccei-pool/home-assistant-vigipool-installer/issues/3)
 
 #### Method 2 : Use Node-Red. 
